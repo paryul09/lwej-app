@@ -1,0 +1,485 @@
+{
+    "info": {
+      "name": "Inventory Management API",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+      "description": "Collection for testing Inventory Management API endpoints"
+    },
+    "item": [
+      {
+        "name": "Items",
+        "item": [
+          {
+            "name": "Add Item",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "type": "text"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"metal\": \"gold\",\n    \"weight\": 5.0,\n    \"netWeight\": 4.5,\n    \"purity\": 99,\n    \"subtype\": \"rose gold\",\n    \"itemType\": { \"id\": 1 },\n    \"supplier\": { \"id\": 1 },\n    \"defaultRate\": 0.0,\n    \"sold\": false,\n    \"quantity\": 10\n}"
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/items",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "items"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Update Item",
+            "request": {
+              "method": "PUT",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "type": "text"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"metal\": \"silver\",\n    \"weight\": 6.0,\n    \"netWeight\": 5.5,\n    \"purity\": 90,\n    \"subtype\": \"plain\",\n    \"itemType\": { \"id\": 2 },\n    \"supplier\": { \"id\": 2 },\n    \"defaultRate\": 15.0,\n    \"sold\": true,\n    \"quantity\": 20\n}"
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/items/1",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "items", "1"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Delete Item",
+            "request": {
+              "method": "DELETE",
+              "url": {
+                "raw": "http://localhost:8080/api/items/1",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "items", "1"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get Item",
+            "request": {
+              "method": "GET",
+              "url": {
+                "raw": "http://localhost:8080/api/items/1",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "items", "1"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get All Items",
+            "request": {
+              "method": "GET",
+              "url": {
+                "raw": "http://localhost:8080/api/items",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "items"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Filter Items",
+            "request": {
+              "method": "GET",
+              "url": {
+                "raw": "http://localhost:8080/api/items/filter?metal=gold&type=ring&minWeight=1&maxWeight=10&purity=99",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "items", "filter"],
+                "query": [
+                  {
+                    "key": "metal",
+                    "value": "gold"
+                  },
+                  {
+                    "key": "type",
+                    "value": "ring"
+                  },
+                  {
+                    "key": "minWeight",
+                    "value": "1"
+                  },
+                  {
+                    "key": "maxWeight",
+                    "value": "10"
+                  },
+                  {
+                    "key": "purity",
+                    "value": "99"
+                  }
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get Total Weight By Metal",
+            "request": {
+              "method": "GET",
+              "url": {
+                "raw": "http://localhost:8080/api/items/total-weight-by-metal?metal=gold",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "items", "total-weight-by-metal"],
+                "query": [
+                  {
+                    "key": "metal",
+                    "value": "gold"
+                  }
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get Total Weight By Type",
+            "request": {
+              "method": "GET",
+              "url": {
+                "raw": "http://localhost:8080/api/items/total-weight-by-type?type=ring",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "items", "total-weight-by-type"],
+                "query": [
+                  {
+                    "key": "type",
+                    "value": "ring"
+                  }
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get Item Count",
+            "request": {
+              "method": "GET",
+              "url": {
+                "raw": "http://localhost:8080/api/items/count",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "items", "count"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get Total Weight By Metal and Sold Status",
+            "request": {
+              "method": "GET",
+              "url": {
+                "raw": "http://localhost:8080/api/items/total-weight-by-metal-sold?sold=false",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "items", "total-weight-by-metal-sold"],
+                "query": [
+                  {
+                    "key": "sold",
+                    "value": "false"
+                  }
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Sell Item",
+            "request": {
+              "method": "POST",
+              "url": {
+                "raw": "http://localhost:8080/api/items/sell/1?soldWeight=1.0&bulk=true",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "items", "sell", "1"],
+                "query": [
+                  {
+                    "key": "soldWeight",
+                    "value": "1.0"
+                  },
+                  {
+                    "key": "bulk",
+                    "value": "true"
+                  }
+                ]
+              }
+            },
+            "response": []
+          }
+        ]
+      },
+      {
+        "name": "Metal Rates",
+        "item": [
+          {
+            "name": "Get Current Rates",
+            "request": {
+              "method": "GET",
+              "url": {
+                "raw": "http://localhost:8080/api/metal-rates",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "metal-rates"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Update Rates",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "type": "text"
+                }
+              ],
+              "url": {
+                "raw": "http://localhost:8080/api/metal-rates?goldRate=1500&silverRate=20",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "metal-rates"],
+                "query": [
+                  {
+                    "key": "goldRate",
+                    "value": "1500"
+                  },
+                  {
+                    "key": "silverRate",
+                    "value": "20"
+                  }
+                ]
+              }
+            },
+            "response": []
+          }
+        ]
+      },
+      {
+        "name": "Suppliers",
+        "item": [
+          {
+            "name": "Add Supplier",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "type": "text"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"firmName\": \"Supplier A\",\n    \"mobileNumber\": \"1234567890\",\n    \"accountNumber\": \"9876543210\",\n    \"ifscCode\": \"IFSC1234\",\n    \"totalBalance\": 10000.00,\n    \"goldBalance\": 500.00,\n    \"silverBalance\": 300.00\n}"
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/suppliers",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "suppliers"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Update Supplier",
+            "request": {
+              "method": "PUT",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "type": "text"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"firmName\": \"Supplier B\",\n    \"mobileNumber\": \"0987654321\",\n    \"accountNumber\": \"1234567890\",\n    \"ifscCode\": \"IFSC5678\",\n    \"totalBalance\": 20000.00,\n    \"goldBalance\": 1000.00,\n    \"silverBalance\": 600.00\n}"
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/suppliers/1",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "suppliers", "1"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Delete Supplier",
+            "request": {
+              "method": "DELETE",
+              "url": {
+                "raw": "http://localhost:8080/api/suppliers/1",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "suppliers", "1"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get Supplier",
+            "request": {
+              "method": "GET",
+              "url": {
+                "raw": "http://localhost:8080/api/suppliers/1",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "suppliers", "1"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get All Suppliers",
+            "request": {
+              "method": "GET",
+              "url": {
+                "raw": "http://localhost:8080/api/suppliers",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "suppliers"]
+              }
+            },
+            "response": []
+          }
+        ]
+      },
+      {
+        "name": "Item Types",
+        "item": [
+          {
+            "name": "Add Item Type",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "type": "text"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"name\": \"Ring\",\n    \"imageUrl\": \"http://example.com/ring.jpg\",\n    \"availableIn\": \"gold\"\n}"
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/item-types",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "item-types"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Update Item Type",
+            "request": {
+              "method": "PUT",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "type": "text"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"name\": \"Bracelet\",\n    \"imageUrl\": \"http://example.com/bracelet.jpg\",\n    \"availableIn\": \"silver\"\n}"
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/item-types/1",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "item-types", "1"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Delete Item Type",
+            "request": {
+              "method": "DELETE",
+              "url": {
+                "raw": "http://localhost:8080/api/item-types/1",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "item-types", "1"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get Item Type",
+            "request": {
+              "method": "GET",
+              "url": {
+                "raw": "http://localhost:8080/api/item-types/1",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "item-types", "1"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get All Item Types",
+            "request": {
+              "method": "GET",
+              "url": {
+                "raw": "http://localhost:8080/api/item-types",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "item-types"]
+              }
+            },
+            "response": []
+          }
+        ]
+      }
+    ]
+  }
+  

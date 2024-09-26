@@ -1,0 +1,249 @@
+{
+    "info": {
+      "name": "Inventory Management Transaction and Customer API",
+      "_postman_id": "1f99f8c1-98ea-4a3e-b8e5-b6cfb529c287",
+      "description": "Collection of APIs for managing Customers, Transactions, and Suppliers",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Customers",
+        "item": [
+          {
+            "name": "Add Customer",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "type": "text"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"name\": \"John Doe\",\n    \"fatherName\": \"Robert Doe\",\n    \"villageName\": \"Springfield\",\n    \"contactNumbers\": [\"1234567890\", \"0987654321\"]\n}"
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/customers",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "customers"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Update Customer",
+            "request": {
+              "method": "PUT",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "type": "text"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"name\": \"John Doe\",\n    \"fatherName\": \"Robert Doe\",\n    \"villageName\": \"Springfield\",\n    \"contactNumbers\": [\"1234567890\", \"0987654321\"]\n}"
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/customers/1",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "customers", "1"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Delete Customer",
+            "request": {
+              "method": "DELETE",
+              "url": {
+                "raw": "http://localhost:8080/api/customers/1",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "customers", "1"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get Customer",
+            "request": {
+              "method": "GET",
+              "url": {
+                "raw": "http://localhost:8080/api/customers/1",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "customers", "1"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get All Customers",
+            "request": {
+              "method": "GET",
+              "url": {
+                "raw": "http://localhost:8080/api/customers",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "customers"]
+              }
+            },
+            "response": []
+          }
+        ]
+      },
+      {
+        "name": "Transactions",
+        "item": [
+          {
+            "name": "Add Sell Transaction",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "type": "text"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"itemId\": 1,\n    \"quantity\": 2,\n    \"soldWeight\": 5.0,\n    \"customerId\": 1,\n    \"amount\": 2000.00,\n    \"transactionDate\": \"2023-01-01T10:00:00\"\n}"
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/transactions/sell",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "transactions", "sell"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Revert Sell Transaction",
+            "request": {
+              "method": "POST",
+              "url": {
+                "raw": "http://localhost:8080/api/transactions/sell/revert/1",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "transactions", "sell", "revert", "1"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Add Customer Transaction",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "type": "text"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"customerId\": 1,\n    \"amount\": 500.00,\n    \"transactionNature\": \"Credit\",\n    \"transactionDate\": \"2023-01-01T10:00:00\",\n    \"description\": \"Credit transaction for services\"\n}"
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/transactions/customer",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "transactions", "customer"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Add Supplier Transaction",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "type": "text"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"supplierId\": 1,\n    \"goldBalance\": 10.00,\n    \"silverBalance\": 5.00,\n    \"cashBalance\": 1000.00,\n    \"transactionNature\": \"Debit\",\n    \"transactionDate\": \"2023-01-01T10:00:00\",\n    \"description\": \"Payment for supply\"\n}"
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/transactions/supplier",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "transactions", "supplier"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get All Transactions",
+            "request": {
+              "method": "GET",
+              "url": {
+                "raw": "http://localhost:8080/api/transactions",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "transactions"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get Transaction",
+            "request": {
+              "method": "GET",
+              "url": {
+                "raw": "http://localhost:8080/api/transactions/1",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "transactions", "1"]
+              }
+            },
+            "response": []
+          }
+        ]
+      },
+      {
+        "name": "Suppliers",
+        "item": [
+          {
+            "name": "Get Supplier Total Balance",
+            "request": {
+              "method": "GET",
+              "url": {
+                "raw": "http://localhost:8080/api/suppliers/1/balance",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "suppliers", "1", "balance"]
+              }
+            },
+            "response": []
+          }
+        ]
+      }
+    ]
+  }
+  

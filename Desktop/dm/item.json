@@ -1,0 +1,269 @@
+{
+    "info": {
+      "name": "ItemController",
+      "_postman_id": "d6a14b1a-4a84-4298-9d6c-283f784d7605",
+      "description": "Collection for ItemController endpoints",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Add Item",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"name\": \"Gold Ring\",\n  \"metal\": \"gold\",\n  \"type\": \"ring\",\n  \"weight\": 5.5,\n  \"purity\": 22,\n  \"netWeight\": 5.0,\n  \"supplier\": \"Supplier A\",\n  \"image\": \"image-url\"\n}"
+          },
+          "url": {
+            "raw": "http://localhost:8080/api/items",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8080",
+            "path": [
+              "api",
+              "items"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Update Item",
+        "request": {
+          "method": "PUT",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"name\": \"Updated Gold Ring\",\n  \"metal\": \"gold\",\n  \"type\": \"ring\",\n  \"weight\": 6.0,\n  \"purity\": 22,\n  \"netWeight\": 5.5,\n  \"supplier\": \"Supplier A\",\n  \"image\": \"updated-image-url\"\n}"
+          },
+          "url": {
+            "raw": "http://localhost:8080/api/items/1",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8080",
+            "path": [
+              "api",
+              "items",
+              "1"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Delete Item",
+        "request": {
+          "method": "DELETE",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:8080/api/items/1",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8080",
+            "path": [
+              "api",
+              "items",
+              "1"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Get Item",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:8080/api/items/1",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8080",
+            "path": [
+              "api",
+              "items",
+              "1"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Get All Items",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:8080/api/items",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8080",
+            "path": [
+              "api",
+              "items"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Get All Items with Filters",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:8080/api/items?metal=gold&type=ring&minWeight=1.0&maxWeight=10.0&purity=22",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8080",
+            "path": [
+              "api",
+              "items"
+            ],
+            "query": [
+              {
+                "key": "metal",
+                "value": "gold"
+              },
+              {
+                "key": "type",
+                "value": "ring"
+              },
+              {
+                "key": "minWeight",
+                "value": "1.0"
+              },
+              {
+                "key": "maxWeight",
+                "value": "10.0"
+              },
+              {
+                "key": "purity",
+                "value": "22"
+              }
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Get Total Weight by Metal",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:8080/api/items/total/weight/gold",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8080",
+            "path": [
+              "api",
+              "items",
+              "total",
+              "weight",
+              "gold"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Get Total Weight by Type",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:8080/api/items/total/weight/type/ring",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8080",
+            "path": [
+              "api",
+              "items",
+              "total",
+              "weight",
+              "type",
+              "ring"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Get Item Count",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:8080/api/items/count",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8080",
+            "path": [
+              "api",
+              "items",
+              "count"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Get Total Weight by Metal and Sold Status",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:8080/api/items/total-weight-by-metal?sold=false",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8080",
+            "path": [
+              "api",
+              "items",
+              "total-weight-by-metal"
+            ],
+            "query": [
+              {
+                "key": "sold",
+                "value": "false"
+              }
+            ]
+          }
+        },
+        "response": []
+      }
+    ]
+  }
+  
